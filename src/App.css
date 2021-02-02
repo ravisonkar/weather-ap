@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+.dropdown{
+  width:80%;
+  margin:6%;
+  height:35px
+}
+.dashboard{
+  background:lightblue
+}
+.search{
+  display:flex
+}
+.button{
+  border:0.6px;
+  margin-left:-44px
+}
