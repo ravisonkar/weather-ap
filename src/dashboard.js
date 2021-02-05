@@ -86,17 +86,18 @@ getWeatherData = async (selectValue) => {
       ]}
     return (
     <div >
-      <div>
+    
+    <div className="text-center">
+    <Container>
+    <div>
       <h1 className="text-center">Weather Report</h1>
      <input type="number"
      value={this.state.selectValue} 
      onChange={this.handleChange} 
      className="dropdown"
      placeholder="Search by zipcode"/>
-      <span onClick={this.getWeatherData} className="button">Search</span>
+      <span onClick={this.getWeatherData} className="button"><button>Search</button></span>
       </div>
-    <div className="text-center">
-    <Container>
     <Card>
      <Card.Header as="h5">Weather Report</Card.Header>
     <Card.Body>
