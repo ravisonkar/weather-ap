@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import Card from 'react-bootstrap/Card'
-import { Col ,Container ,Row} from 'react-bootstrap';
+import { Col ,Container ,Row ,Button} from 'react-bootstrap';
 import { fetchWeatherDataRequest } from './weather';
 import {Line} from 'react-chartjs-2';
 import '../node_modules/react-linechart/dist/styles.css';
+
 
 
 
@@ -21,7 +22,8 @@ class Dashboard extends Component {
     wind_speed:"",
     humidity:"",
     pressure:"",
-    show_more_details:true
+    show_more_details:false,
+    button:true,
   }}
  
  componentDidMount() {
@@ -58,12 +60,14 @@ getWeatherData = async (selectValue) => {
   })
 };
   
-  // viewMoredetails=()=>{
-  //   this.setState({
-  //   show_more_details:true
-  //   })
+  viewMoredetails=()=>{
+    this.setState({
+    show_more_details:true,
+    button:false
 
-  // }  
+    })
+
+  }  
   render() {
     const data = {
       labels: ['sunday', 'Monday cold sky', 'Tuesday hot sunny ','Wednesday hot cloudy',
@@ -105,7 +109,15 @@ getWeatherData = async (selectValue) => {
      <p className="text-primary">{this.state.todays_higest_temperatue}</p></Col>
      <Col  ><p>toady's low tempetraure</p><p sm={6} className="text-primary"> {this.state.todays_lowest_temperatue}</p></Col>
      <Col sm={6} > <p>current_temperature</p><p className="text-primary">{this.state.current_temperature}</p></Col>
-    </Row>
+     {this.state.button? (
+     <Col sm={6} > <Button onClick={this.viewMoredetails}><strong>view more details</strong></Button></Col>):("")}
+
+        {this.state.show_more_details ? (
+    <>
+     <Col sm={6} > <p>wind speed</p><p className="text-primary">{this.state.wind_speed}</p></Col>
+    <Col sm={6} > <p>humidity</p><p className="text-primary">{this.state.humidity}</p></Col>
+    <Col sm={6} > <p>pressure</p><p className="text-primary">{this.state.pressure}</p></Col></>):("")}
+     </Row>
   </Card.Body>
    </Card>
  </Container>
