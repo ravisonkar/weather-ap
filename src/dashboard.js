@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
 import { Col ,Container ,Row} from 'react-bootstrap';
 import { fetchWeatherDataRequest } from './weather';
 import {Line} from 'react-chartjs-2';
